@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Demo Formulaire Dynamique - ISIMM MTC</title>
+</head>
+<body>
+
+    <label for="username">Donnez votre nom</label>
+
+    <input id="username" />
+
+    <button id="affiche">Afficher</button>
+
+    <!-- Emplacement d'affichage (pre pour garder les espaces) -->
+    <pre id="message"></pre>
+
+    <script>
+        console.log("Hello");
+
+        function afficher() {
+            // alert("Hello World");
+            let username = document.getElementById("username");
+            let msg;
+            if (username.value) {
+                msg = "Hello " + username.value;
+            } else {
+                msg = "Hello World";
+            }
+            alert(msg);
+        }
+
+        /** Affiche le nom en balise pre */
+        function afficher2() {
+            let username = document.getElementById("username");
+            let message = document.getElementById("message");
+            let msg = "Hello ";
+            let nom = username.value;
+            nom = nom.trim(); // supprimer les espaces autour du nom
+            if (nom) {
+                nom = nom[0].toUpperCase() + nom.slice(1); // Premier lettre en Maj
+                msg += nom;
+            } else {
+                msg += "World";
+            }
+            // Changer le contenu textuel du balise pre par le msg
+            message.textContent = msg;
+        }
+
+
+        let affiche = document.getElementById("affiche");
+        // affiche.onclick = afficher;
+        affiche.addEventListener("click", afficher2);
+    </script>
+</body>
+</html>
