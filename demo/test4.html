@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Yes No - Vuejs</title>   
+</head>
+<body>
+    <div id="app">
+        <div v-if="!auth" id="login-form">
+            <form @submit.prevent="login()">
+                <label>Username:</label>
+                <input v-model="username" />
+
+                <label>Password:</label>
+                <input type="password" v-model="password" />
+
+                <button>I feel lucky</button>
+            </form>
+        </div> 
+        <div v-else="" id="yesno">
+            <h1>Are you luck ? ({{ answer }})</h1>
+            <img :src="img" width="300" />
+        </div>
+    </div>
+    
+    <script src="../vendor/vue/vue.js"></script>
+    <script src="test4.js"></script>
+</body>
+</html>

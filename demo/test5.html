@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>TODO list - Vuejs</title>   
+</head>
+<body>
+    <div id="app">
+        <input v-model.trim="task" @keyup.enter="addTask()"/>
+
+        <ul>
+            <li v-for="(t, index) of tasks">
+                {{ t }}
+                <button @click="deleteTask(index)">x</button>
+            </li>
+        </ul>
+    </div>
+    
+    <script src="../vendor/vue/vue.js"></script>
+    <script src="test5.js"></script>
+</body>
+</html>

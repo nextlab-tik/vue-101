@@ -3,11 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <title>Test 3 - ISIMM MTC - Vue.js</title>
+    <style>
+    /* appliquer le styling à seulement balise de id 'nom' */
+    #nom {
+        text-transform: capitalize;
+    }
+    </style>
 </head>
 <body>
     <div id="app">
-        <h1>Hello {{ username || "World" }}</h1>
-        <input v-model="username" />
+        <label for="username">Tapez votre nom:</label>
+        <input id="username" v-model.trim="username" />
+        <button @click="afficher()">Afficher</button>
+
+        <p v-if="nom">Hello <span id="nom">{{ nom }}</span> to our forum</p>
+        <p v-if="btn_clicked && !nom">Veuillez saisir votre nom!</p>
     </div>
 
     <script src="../vendor/vue/vue.js"></script>
